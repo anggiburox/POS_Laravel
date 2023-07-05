@@ -73,12 +73,23 @@ class FinanceControllerAdmin extends Controller
 		return view('pages/admin/finance/edit',['pgw' => $pgw]);
 	}
 
+	public function detail($id)
+	{
+		// mengambil data keberangkatan berdasarkan id yang dipilih
+		$pgw = DB::table('users')
+        ->join('finance', 'finance.ID_Finance', '=', 'users.ID_Finance')
+		->where('users.ID_Finance',$id)
+		->get();
+		// passing data keberangkatan yang didapat ke view edit.blade.php
+		return view('pages/admin/finance/detail',['pgw' => $pgw]);
+	}
+
 	// update data outlet
 	public function update(Request $request){
         $m = UsersModel::find($request->id_user);
 	
 		if($m){
-            $username_lama = $user->Username;
+            $username_lama = $m->Username;
             $validatedData = $request->validate([
                 'username' => $username_lama == $request->username ? '' : 'unique:users,Username',
             ],[
@@ -86,7 +97,7 @@ class FinanceControllerAdmin extends Controller
             ]);
 
 			// update data outlet
-            DB::table('finance_outlet')->where('ID_Finance',$request->id_finance)->update([
+            DB::table('finance')->where('ID_Finance',$request->id_finance)->update([
                 'Nama_Finance' => $request->nama_finance,
                 'Tempat_Lahir_Finance' => $request->tempat_lahir,
                 'Tanggal_Lahir_Finance' => $request->tanggal_lahir,
@@ -103,15 +114,13 @@ class FinanceControllerAdmin extends Controller
 			// Alihkan halaman ke halaman mahasiswa
 			return redirect('/admin/finance')->withSuccess('Data berhasil diperbaharui');
 		}
-	
 		return redirect()->back()->withErrors(['Username' => 'Username tidak ditemukan']);
-		
     }
 
 	public function hapus($id){
    
         // Menghapus data outlet dari tabel
-        DB::table('finance_outlet')->where('ID_Finance', $id)->delete();
+        DB::table('finance')->where('ID_Finance', $id)->delete();
 		DB::table('users')->where('ID_Finance',$id)->delete();
 		// Alihkan halaman ke halaman outlet jika tidak ada data outlet dengan ID tersebut
 		return redirect('/admin/finance')->withDanger('Data outlet tidak ditemukan');

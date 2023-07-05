@@ -29,7 +29,7 @@ class UsersModel extends Model
     
     public static function joinuserleader(){
         $brng =  DB::table('users')
-        ->join('leader_otlet', 'leader_otlet.ID_Leader', '=', 'users.ID_Leader')
+        ->join('leader_outlet', 'leader_outlet.ID_Leader', '=', 'users.ID_Leader')
         ->get();
         return $brng;
     }   
@@ -37,16 +37,16 @@ class UsersModel extends Model
     public static function fetchUserJoinLeader($id)
     {   
         $brng =  DB::table('users')
-        ->join('leader_otlet', 'leader_otlet.ID_Finance', '=', 'users.ID_Finance')
+        ->join('leader_outlet', 'leader_outlet.ID_Leader', '=', 'users.ID_Leader')
         ->where('users.ID_User', $id)
         ->get();
         return $brng;
     }
 
-    public static function fetchjoinuserleader($id)
+    public static function fetchjoinleader($id)
     {
         $brng =  DB::table('users')
-        ->join('leader_otlet', 'leader_otlet.ID_Leader', '=', 'users.ID_Leader')
+        ->join('leader_outlet', 'leader_outlet.ID_Leader', '=', 'users.ID_Leader')
         ->where('ID_User',$id)
         ->first();
         return $brng;
@@ -56,7 +56,7 @@ class UsersModel extends Model
     
     public static function joinuserfinance(){
         $brng =  DB::table('users')
-        ->join('finance', 'leader_otlet.ID_Leader', '=', 'users.ID_Leader')
+        ->join('finance', 'finance.ID_Finance', '=', 'users.ID_Finance')
         ->get();
         return $brng;
     }   
@@ -64,16 +64,16 @@ class UsersModel extends Model
     public static function fetchUserJoinFinance($id)
     {   
         $brng =  DB::table('users')
-        ->join('finance', 'leader_otlet.ID_Leader', '=', 'users.ID_Leader')
+        ->join('finance', 'finance.ID_Finance', '=', 'users.ID_Finance')
         ->where('users.ID_User', $id)
         ->get();
         return $brng;
     }
 
-    public static function fetchjoinuserfinance($id)
+    public static function fetchjoinfinance($id)
     {
         $brng =  DB::table('users')
-        ->join('finance', 'leader_otlet.ID_Leader', '=', 'users.ID_Leader')
+        ->join('finance', 'finance.ID_Finance', '=', 'users.ID_Finance')
         ->where('ID_User',$id)
         ->first();
         return $brng;

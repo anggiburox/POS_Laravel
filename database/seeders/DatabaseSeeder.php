@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,8 +13,17 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run() : void
     {
+        DB::table('users')->insert([
+            ['Username' => 'admin', 'Password' =>'admin123', 'ID_User_Roles'=>'1'],
+        ]);
+
+        DB::table('users_role')->insert([
+            ['Role' => 'Admin'],
+            ['Role' => 'Finance'],
+            ['Role' => 'Leader'],
+        ]);
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
