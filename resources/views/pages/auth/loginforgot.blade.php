@@ -95,8 +95,9 @@
                                 <div class="col-sm-12">
                                     <div class="input-group mb-0">
                                         <button type="button" class="btn btn-lg btn-block"
-                                            style="color: white;background-color: #22bcc6;" onclick="form_submit()">Sign
-                                            Up</button>
+                                            style="color: white;background-color: #22bcc6;"
+                                            onclick="form_submit()">Submit
+                                        </button>
                                     </div>
                                 </div>
                             </div>
