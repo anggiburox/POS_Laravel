@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\LaporanModel;
 use Illuminate\Http\Request;
 use App\Models\ReportHarianModel;
+use App\Models\OutletModel;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
@@ -25,7 +26,8 @@ class ReportHarianControllersAdmin extends Controller
 
 	public function tambah()
 	{
-		return view('pages/admin/report_harian/tambah');
+		$outlet = OutletModel::JoinOutletLeader();
+		return view('pages/admin/report_harian/tambah',['outlet'=>$outlet]);
 	}
 
 	public function store(Request $request)

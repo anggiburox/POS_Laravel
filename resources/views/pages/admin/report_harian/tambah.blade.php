@@ -18,7 +18,7 @@
                     <div class="row mb-3">
                         <label for="inputText" class="col-sm-4 col-form-label">Tanggal <label
                                 style='color:red;'>(*)</label></label>
-                        <div class="col-sm-2">
+                        <div class="col-sm-3">
                             <input type="date" class="form-control" name="tanggal_laporan" value="<?= date('Y-d-m') ?>" required readonly style="background-color:#e6e6fa;">
                         </div>
                     </div>
@@ -26,8 +26,14 @@
                         <label for="inputText" class="col-sm-4 col-form-label">Nama Outlet <label
                                 style='color:red;'>(*)</label></label>
                         <div class="col-sm-5">
-                            <select name='id_outlet' id="selectOutlet" class='form-control' onchange=showOutlet() >
+                            <select name='id_outlet' class='form-control' id='myselectOutlet' onchange="selectOutlet()"
+                            required>
                                 <option value="">-- Pilih Data Outlet --</option>
+                                @foreach($outlet as $o)
+                                <option value="{{ $o->ID_Outlet }}"
+                                    data-namaLeader="{{ $o->Nama_Leader}}">
+                                    {{ $o->Nama_Outlet}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -35,7 +41,7 @@
                         <label for="inputText" class="col-sm-4 col-form-label">Nama Leader <label
                                 style='color:red;'>(*)</label></label>
                         <div class="col-sm-5">
-                            <input type="text" class="form-control" name="id_leader" value="" style="background-color:#e6e6fa;">
+                            <input type="text" class="form-control" id='nama_leader' name="id_leader" value="" style="background-color:#e6e6fa;" readonly>
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -51,7 +57,7 @@
                     <div class="col-12">
                         <button class="btn btn-success" type="submit"><i class='bi bi-check-circle'></i>&nbsp;
                             Tambah</button>
-                        <a href="/admin/outlet" class="btn btn-secondary"><i class='bi bi-x-circle'></i>&nbsp;
+                        <a href="/admin/report_harian" class="btn btn-secondary"><i class='bi bi-x-circle'></i>&nbsp;
                             Kembali</a>
                     </div>
                 </form><!-- End Custom Styled Validation -->
@@ -62,6 +68,20 @@
     </div>
     <script>
         $('#selectLeader').select2({});
+
+
+$('#myselectOutlet').select2({});
+
+function selectOutlet() {
+    var select = document.getElementById("myselectOutlet");
+    var selectedOption = select.options[select.selectedIndex];
+    var nama = selectedOption.getAttribute("data-namaLeader");
+    if (nama) {
+        document.getElementById("nama_leader").value = nama;
+    } else {
+        document.getElementById("nama_leader").value = "";
+    }
+}
 
 
         function showLeader() {
