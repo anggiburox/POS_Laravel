@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use App\Models\FinanceModel;
 use App\Models\LeaderModel;
 use App\Models\OutletModel;
 use Illuminate\Support\Facades\DB;
@@ -15,11 +16,9 @@ class DashboardAdmin extends Controller
      */    
     public function index()
     {  
+        $finance = FinanceModel::count();
         $leader = LeaderModel::count();
         $outlet = OutletModel::count();
-        // $mhsSI = MahasiswaModel::where('Program_Studi', 'Sistem Informasi')->count();
-        // $mhsTI = MahasiswaModel::where('Program_Studi', 'Teknik Informatika')->count();
-        // $mhsDKV = MahasiswaModel::where('Program_Studi', 'Desain Komunikasi Visual')->count();
-        return view('pages/admin/dashboard', ['leader'=>$leader,'outlet'=>$outlet]);
+        return view('pages/admin/dashboard', ['finance'=>$finance,'leader'=>$leader,'outlet'=>$outlet]);
     }
 }

@@ -43,4 +43,23 @@ class OutletModel extends Model
         ->get();
         return $brng;
     }
+
+    public static function JoinOutletLeaderSession($leaderId)
+    {
+        $brng = DB::table('outlet')
+        ->join('leader_outlet', 'leader_outlet.ID_Leader', '=', 'outlet.ID_Leader')
+        ->where('leader_outlet.ID_Leader', $leaderId)
+        ->get();
+        return $brng;
+    }
+    
+    public static function LeaderSession($id)
+    {
+        $brng = DB::table('leader_outlet')
+            ->join('users', 'users.ID_Leader', '=', 'leader_outlet.ID_Leader')
+            ->where('leader_outlet.Nama_Leader', $id)
+            ->first();
+        
+        return $brng;
+    }
 }

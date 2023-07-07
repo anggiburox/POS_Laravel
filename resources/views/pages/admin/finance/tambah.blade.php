@@ -5,6 +5,12 @@
     <h1>Tambah Data Finance</h1>
 </div><!-- End Page Title -->
 
+@if(Session::has('errors'))
+<div class="alert alert-danger">
+    {{Session::get('errors')}}
+</div>
+@endif
+
 <div class="col-xl-12 col-xxl-12">
 
     <div class="card">
@@ -19,8 +25,8 @@
                     <label for="inputText" class="col-sm-4 col-form-label">ID Finance <label
                             style='color:red;'>(*)</label></label>
                     <div class="col-sm-2">
-                        <input type="text" class="form-control" name="id_finance" value="{{$kode}}" required
-                            readonly style="background-color:#e6e6fa;">
+                        <input type="text" class="form-control" name="id_finance" value="{{$kode}}" required readonly
+                            style="background-color:#e6e6fa;">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -41,7 +47,8 @@
                     <label for="inputText" class="col-sm-4 col-form-label">Tanggal Lahir <label
                             style='color:red;'>(*)</label></label>
                     <div class="col-sm-5">
-                        <input type="date" class="form-control" name="tanggal_lahir" value='{{ date("Y-m-d") }}' required>
+                        <input type="date" class="form-control" name="tanggal_lahir" value='{{ date("Y-m-d") }}'
+                            required>
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -75,7 +82,7 @@
                     <label for="inputText" class="col-sm-4 col-form-label">Nomor Telepon <label
                             style='color:red;'>(*)</label></label>
                     <div class="col-sm-5">
-                        <input type="number" min='0' class="form-control" name="telepon_Finance" required>
+                        <input type="number" min='0' class="form-control" name="telepon_finance" required>
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -91,7 +98,8 @@
                     <div class="col-sm-5">
                         <div class="input-group mb-3">
                             <input type="password" class="form-control" name='password' required id="password" />
-                            <span class="input-group-text" onclick="showPassword()"><i class="bi bi-eye-fill"></i></span>
+                            <span class="input-group-text" onclick="showPassword()"><i
+                                    class="bi bi-eye-fill"></i></span>
                         </div>
                     </div>
                 </div>

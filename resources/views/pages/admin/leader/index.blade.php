@@ -43,19 +43,23 @@
                                 <td>{{$no}}</td>
                                 <td>{{$p->ID_Leader}}</td>
                                 <td>{{$p->Nama_Leader}}</td>
-                                <td>{{$p->Tempat_Lahir_Leader}}, {{ \Carbon\Carbon::parse($p->Tanggal_Lahir_Leader)->isoFormat('D MMMM Y') }}</td>
+                                <td>{{$p->Tempat_Lahir_Leader}},
+                                    {{ \Carbon\Carbon::parse($p->Tanggal_Lahir_Leader)->isoFormat('D MMMM Y') }}</td>
                                 <td>{{$p->Jenis_Kelamin_Leader}}</td>
                                 <td>{{$p->Alamat_Leader}}</td>
                                 <td>{{$p->Nomor_Telepon_Leader}}</td>
                                 <td>
-                                    <a href="leader/edit/{{ $p->ID_Leader}}" data-toggle="tooltip"
-                                        data-placement="top" title="Perbaharui" class="btn mb-1 btn-primary"
-                                        type="button"><i class="ri-edit-box-line"></i>&nbsp; Edit</a>
+                                    <a href="leader/edit/{{ $p->ID_Leader}}" data-toggle="tooltip" data-placement="top"
+                                        title="Perbaharui" class="btn mb-1 btn-primary" type="button"><i
+                                            class="ri-edit-box-line"></i>&nbsp; Edit</a>
                                     |
-                                    <a href="leader/hapus/{{ $p->ID_Leader}}"
-                                        class="delete btn mb-1 btn-danger" onclick="showConfirmation(event)"
-                                        data-toggle="tooltip" data-placement="top" title="Hapus" type="button"><i
-                                            class="bi bi-trash-fill"></i>&nbsp; Hapus</a>
+                                    <a href="leader/detail/{{ $p->ID_Leader}}" data-toggle="tooltip"
+                                        data-placement="top" title="Detail" class="btn mb-1 btn-warning"
+                                        type="button"><i class="bi bi-eye-fill"></i>&nbsp; Detail</a>
+                                    |
+                                    <a href="leader/hapus/{{ $p->ID_Leader}}" class="delete btn mb-1 btn-danger"
+                                        onclick="showConfirmation(event)" data-toggle="tooltip" data-placement="top"
+                                        title="Hapus" type="button"><i class="bi bi-trash-fill"></i>&nbsp; Hapus</a>
                                 </td>
                             </tr>
                             @endforeach
