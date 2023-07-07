@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 05, 2023 at 06:36 PM
+-- Generation Time: Jul 07, 2023 at 01:04 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.0.23
 
@@ -65,6 +65,23 @@ INSERT INTO `finance` (`ID_Finance`, `Nama_Finance`, `Tempat_Lahir_Finance`, `Ta
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `laporan`
+--
+
+CREATE TABLE `laporan` (
+  `ID_Laporan` int(10) UNSIGNED NOT NULL,
+  `ID_Outlet` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Tanggal_Laporan` date DEFAULT NULL,
+  `Barang` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Pemasukan` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Pengeluaran` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `leader_outlet`
 --
 
@@ -113,7 +130,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (52, '2023_06_21_172339_create_leader_outlet_table', 1),
 (53, '2023_06_22_121039_create_report_harian_table', 1),
 (54, '2023_07_04_010559_create_users_role_table', 1),
-(55, '2023_07_04_012215_create_finance_table', 1);
+(55, '2023_07_04_012215_create_finance_table', 1),
+(56, '2023_07_04_131145_create_laporan_table', 2);
 
 -- --------------------------------------------------------
 
@@ -248,6 +266,12 @@ ALTER TABLE `finance`
   ADD PRIMARY KEY (`ID_Finance`);
 
 --
+-- Indexes for table `laporan`
+--
+ALTER TABLE `laporan`
+  ADD PRIMARY KEY (`ID_Laporan`);
+
+--
 -- Indexes for table `leader_outlet`
 --
 ALTER TABLE `leader_outlet`
@@ -308,10 +332,16 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `laporan`
+--
+ALTER TABLE `laporan`
+  MODIFY `ID_Laporan` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
