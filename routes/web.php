@@ -51,3 +51,6 @@ Route::post('/admin/report_harian/store', [ReportHarianControllersAdmin::class, 
 Route::get('/admin/report_harian/edit/{id}',[ReportHarianControllersAdmin::class, 'edit']);
 Route::post('/admin/report_harian/update',[ReportHarianControllersAdmin::class, 'update']);
 Route::get('/admin/report_harian/hapus/{id}',[ReportHarianControllersAdmin::class, 'hapus']);
+Route::get('/ajax/report_ayam/{id}',[ReportHarianControllersAdmin::class, 'list_ayam']);
+Route::get('/ajax/report_pemasukan/{id}',[ReportHarianControllersAdmin::class, 'list_pemasukan']);
+Route::get('/ajax/report_pengeluaran/{id}',[ReportHarianControllersAdmin::class, 'list_pengeluaran']);
