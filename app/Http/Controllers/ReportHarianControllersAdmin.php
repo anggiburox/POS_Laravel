@@ -19,7 +19,7 @@ class ReportHarianControllersAdmin extends Controller
 	 */
 	public function index()
 	{
-		$pgw = LaporanModel::get();
+		$pgw = LaporanModel::Index();
 		return view('pages/admin/report_harian/index', ['pgw' => $pgw]);
 	}
 
@@ -27,6 +27,7 @@ class ReportHarianControllersAdmin extends Controller
 	public function tambah()
 	{
 		$outlet = OutletModel::JoinOutletLeader();
+		// dd($outlet);
 		return view('pages/admin/report_harian/tambah',['outlet'=>$outlet]);
 	}
 
@@ -35,44 +36,20 @@ class ReportHarianControllersAdmin extends Controller
 
 		// insert data ke table report_harian
 		$arrayBarang = $request->barang;
-		$jsonArrayBarang = [];
+		$jsonArrayBarang = json_encode($arrayBarang);
 
-		for ($i = 1; $i <= count($arrayBarang); $i += 3) {
-			$jsonArrayBarang[] = json_encode([
-				'name' => $arrayBarang[$i],
-				'value1' => $arrayBarang[$i + 1],
-				'value2' => $arrayBarang[$i + 2]
-			]);
-		}
 		$arrayPemasukan = $request->pemasukan;
-		$jsonArrayPemasukan = [];
+		$jsonArrayPemasukan = json_encode($arrayPemasukan);
 
-		for ($j = 1; $j <= count($arrayPemasukan); $j += 3) {
-			$jsonArrayPemasukan[] = json_encode([
-				'name' => $arrayPemasukan[$j],
-				'value1' => $arrayPemasukan[$j + 1],
-				'value2' => $arrayPemasukan[$j + 2]
-			]);
-		}
 		$arrayPengeluaran = $request->pengeluaran;
-		$jsonArrayPengeluaran = [];
-
-		for ($k = 1; $k <= count($arrayPengeluaran); $k += 3) {
-			$jsonArrayPengeluaran[] = json_encode([
-				'name' => $arrayPengeluaran[$k],
-				'value1' => $arrayPengeluaran[$k + 1],
-				'value2' => $arrayPengeluaran[$k + 2]
-			]);
-		}
+		$jsonArrayPengeluaran = json_encode($arrayPengeluaran);
 		
 		DB::table('laporan')->insert([
 			'ID_Outlet' => $request->id_outlet,
-			// 'ID_Leader' => $request->id_leader,
 			'Tanggal_Laporan' => $request->tanggal_laporan,
-			'Barang' => json_encode($jsonArrayBarang),
-			'Pemasukan' => json_encode($jsonArrayPemasukan),
-			'Pengeluaran' => json_encode($jsonArrayPengeluaran),
-			// 'Alamat_report_harian' => $request->alamat_report_harian,
+			'Barang' => $jsonArrayBarang,
+			'Pemasukan' => $jsonArrayPemasukan,
+			'Pengeluaran' => $jsonArrayPengeluaran,
 		]);
 
 		// alihkan halaman ke halaman report_harian
@@ -82,22 +59,51 @@ class ReportHarianControllersAdmin extends Controller
 	public function edit($id)
 	{
 		// mengambil data keberangkatan berdasarkan id yang dipilih
-		$pgw = DB::table('report_harian')
-			->where('ID_report_harian', $id)
-			->get();
-		$leader = LeaderModel::get();
+		$pgw = LaporanModel::where('ID_Laporan',$id)->get();
+		$outlet = OutletModel::JoinOutletLeader();
+
+		$Barang = $pgw[0]->Barang;
+		$Pemasukan = $pgw[0]->Pemasukan;
+		$Pengeluaran = $pgw[0]->Pengeluaran;
+
+		$ListBarang=json_decode($Barang);
+		$ListPemasukan=json_decode($Pemasukan);
+		$ListPengeluaran=json_decode($Pengeluaran);
+		// $outlet = OutletModel::JoinOutletLeader()->where;
+		
+		// foreach ($listBarang as $key => $item) {
+		// 	${"item" . $key} = json_decode($item, true);
+		//   }
+		//   dd($i);
+		// $leader = LeaderModel::get();
 		// passing data keberangkatan yang didapat ke view edit.blade.php
-		return view('pages/admin/report_harian/edit', ['pgw' => $pgw, 'leader' => $leader]);
+		return view('pages/admin/report_harian/edit', [
+			'pgw' => $pgw, 
+			'ListBarang'=>$ListBarang, 
+			'ListPemasukan'=>$ListPemasukan, 
+			'ListPengeluaran'=>$ListPengeluaran,
+			'outlet'=>$outlet
+		]);
 	}
 
 	// update data report_harian
 	public function update(Request $request)
 	{
+		$arrayBarang = $request->barang;
+		$jsonArrayBarang = json_encode($arrayBarang);
+
+		$arrayPemasukan = $request->pemasukan;
+		$jsonArrayPemasukan = json_encode($arrayPemasukan);
+
+		$arrayPengeluaran = $request->pengeluaran;
+		$jsonArrayPengeluaran = json_encode($arrayPengeluaran);
 		// update data report_harian
-		DB::table('report_harian')->where('ID_report_harian', $request->id_report_harian)->update([
-			'ID_Leader' => $request->id_leader,
-			'Nama_report_harian' => $request->nama_report_harian,
-			'Alamat_report_harian' => $request->alamat_report_harian,
+		DB::table('laporan')->where('ID_Laporan', $request->ID_Laporan)->update([
+			'ID_Outlet' => $request->id_outlet,
+			'Tanggal_Laporan' => $request->tanggal_laporan,
+			'Barang' => $jsonArrayBarang,
+			'Pemasukan' => $jsonArrayPemasukan,
+			'Pengeluaran' => $jsonArrayPengeluaran,
 		]);
 
 
@@ -119,7 +125,7 @@ class ReportHarianControllersAdmin extends Controller
 		// Menghapus data report_harian dari tabel
 		$list = DB::table('laporan')->select('Barang')->where('ID_Laporan', $id)->get();
 		$listBarang = json_decode($list[0]->Barang);
-		// dd($listBarang);
+		
 
 		// Alihkan halaman ke halaman report_harian jika tidak ada data report_harian dengan ID tersebut
 		return response()->json($listBarang);
