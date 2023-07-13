@@ -45,10 +45,10 @@
                                             {{ $p->Tanggal_Laporan }}
                                         </td>
                                         <td>
-                                            {{ $p->ID_Outlet }}
+                                            {{ $p->Nama_Outlet }}
                                         </td>
                                         <td>
-                                            Leader
+                                            {{ $p->Nama_Leader }}
                                         </td>
                                         <td>
                                             <a class="delete btn mb-1 btn-info"
@@ -69,11 +69,11 @@
                                                     class="bi bi-eye-fill"></i>&nbsp; Lihat</a>
                                         </td>
                                         <td>
-                                            <a href="leader/edit/{{ $p->ID_Laporan}}" data-toggle="tooltip"
+                                            <a href="/admin/report_harian/edit/{{ $p->ID_Laporan }}" data-toggle="tooltip"
                                                 data-placement="top" title="Perbaharui" class="btn mb-1 btn-primary"
                                                 type="button"><i class="ri-edit-box-line"></i>&nbsp; Edit</a>
                                             |
-                                            <a href="/admin/report_harian/hapus/{{ $p->ID_Laporan}}"
+                                            <a href="/admin/report_harian/hapus/{{ $p->ID_Laporan }}"
                                                 class="delete btn mb-1 btn-danger" onclick="showConfirmation(event)"
                                                 data-toggle="tooltip" data-placement="top" title="Hapus" type="button"><i
                                                     class="bi bi-trash-fill"></i>&nbsp; Hapus</a>
@@ -147,6 +147,7 @@
             });
             $('#ModalPemasukan').modal('show');
         }
+
         function listLaporanPengeluaran(id) {
             $.ajax({
                 url: '/ajax/report_pengeluaran/' + id,
@@ -166,70 +167,91 @@
         }
 
         function createTable(response) {
-            // Assuming the table has an ID of "data-table" in your HTML
+            var key = Object.keys(response);
             let tableHtml =
                 '<table class="table table-sm"><thead><tr><th>NAMA BARANG</th><th>QTY</th><th>PCS</th></tr></thead><tbody>';
 
-            response.forEach(data => {
-                const {
-                    name,
-                    value1,
-                    value2
-                } = JSON.parse(data);
-                tableHtml += `<tr><td>${name}</td><td>${value1}</td><td>${value2}</td></tr>`;
-            });
 
+            for (var i = 0; i < key.length; i += 3) {
+                tableHtml += '<tr>';
+
+                // Create three table cells in each row
+                for (var j = 0; j < 3; j++) {
+                    var keya = key[i + j];
+                    var value = response[keya];
+
+                    tableHtml += '<td>' + value + '</td>';
+                }
+
+                // Append the row to the table
+                tableHtml += '</tr>';
+            }
             tableHtml += '</tbody></table>';
+
+            // Assuming the table has an ID of "data-table" in your HTML
+
 
             $('#table-container').html(tableHtml);
         }
 
         function createTable1(response) {
+            var key = Object.keys(response);
+
             // Assuming the table has an ID of "data-table" in your HTML
             let tableHtml =
                 '<table class="table table-sm"><thead><tr><th>REKAP SETORAN</th><th>PCS</th><th>JUMLAH</th></tr></thead><tbody>';
 
-            const rowsPerGroup = 7;
+            for (var i = 0; i < key.length; i += 3) {
+                // Create five rows
+                tableHtml += '<tr>';
+                for (var j = 0; j < 3; j++) {
+                    var currentIndex = i + j;
+                
+                    var keya = key[currentIndex];
+                    var value = response[keya];
 
-            for (let i = 0; i < response.length; i++) {
-                const {
-                    name,
-                    value1,
-                    value2
-                } = JSON.parse(response[i]);
-                tableHtml += `<tr><td>${name}</td><td>${value1}</td><td>${value2}</td></tr>`;
+                    tableHtml += '<td>' + value + '</td>';
+                    // Add additional columns if needed
+                }
+                tableHtml += '</tr>';
 
-                if ((i + 1) % rowsPerGroup === 0 && i + 1 !== response.length) {
-                    // Add an empty row to create a visual separation between groups
+                // Add two additional rows
+                if ((i + 3) % 7 === 0) {
+                    // Add two additional rows
                     tableHtml += '<tr><td colspan="3">&nbsp;</td></tr>';
                 }
             }
-
             tableHtml += '</tbody></table>';
 
             $('#table-container1').html(tableHtml);
         }
+
         function createTable2(response) {
+            var key = Object.keys(response);
             // Assuming the table has an ID of "data-table" in your HTML
             let tableHtml =
-                '<table class="table table-sm"><thead><tr><th>REKAP SETORAN</th><th>PCS</th><th>JUMLAH</th></tr></thead><tbody>';
+                '<table class="table table-sm"><thead><tr><th>NAMA BARANG</th><th>QTY</th><th>NILAI</th></tr></thead><tbody>';
 
             const rowsPerGroup = 7;
 
-            for (let i = 0; i < response.length; i++) {
-                const {
-                    name,
-                    value1,
-                    value2
-                } = JSON.parse(response[i]);
-                tableHtml += `<tr><td>${name}</td><td>${value1}</td><td>${value2}</td></tr>`;
+            for (var i = 0; i < key.length; i += 3) {
+                // Create five rows
+                tableHtml += '<tr>';
+                for (var j = 0; j < 3; j++) {
+                    var currentIndex = i + j;
+              
 
-                if ((i + 1) % rowsPerGroup === 0 && i + 1 !== response.length) {
-                    // Add an empty row to create a visual separation between groups
-                    tableHtml += '<tr><td colspan="3">&nbsp;</td></tr>';
+                    var keya = key[currentIndex];
+                    var value = response[keya];
+
+                    tableHtml += '<td>' + value + '</td>';
+                    // Add additional columns if needed
                 }
-            }
+                tableHtml += '</tr>';
 
+                // Add two additional rows
+
+            }
             tableHtml += '</tbody></table>';
 
             $('#table-container2').html(tableHtml);

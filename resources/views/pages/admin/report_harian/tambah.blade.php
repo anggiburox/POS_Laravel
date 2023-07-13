@@ -26,7 +26,7 @@
                         <label for="inputText" class="col-sm-4 col-form-label">Nama Outlet <label
                                 style='color:red;'>(*)</label></label>
                         <div class="col-sm-5">
-                            <select name='id_outlet' class='form-control' id='myselectOutlet' onchange="selectOutlet()"
+                            <select name='id_outlet' class='form-select' style="background-color:#e6e6fa;" id='myselectOutlet' onchange="selectOutlet()"
                             required>
                                 <option value="">-- Pilih Data Outlet --</option>
                                 @foreach($outlet as $o)
