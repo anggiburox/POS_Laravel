@@ -309,4 +309,18 @@
                                             style="background-color:#e6e6fa;">
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td>
+                                        Total Pemasukan
+                                        <input type="hidden"  name="pemasukan[61]" value="{{ $ListPemasukan->{61} }}" style="background-color:#e6e6fa;">
+                                    </td>
+                                    <td>
+                                        <input type="number" min="0" class="form-control" name="pemasukan[62]" value="{{ $ListPemasukan->{62} }}"
+                                            style="background-color:#e6e6fa;">
+                                    </td>
+                                    <td>
+                                        <input type="number" min="0" class="form-control" name="pemasukan[63]" value="{{ $ListPemasukan->{63} }}"
+                                            style="background-color:#e6e6fa;">
+                                    </td>
+                                </tr>
                             </table>

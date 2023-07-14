@@ -77,6 +77,11 @@
                                                 class="delete btn mb-1 btn-danger" onclick="showConfirmation(event)"
                                                 data-toggle="tooltip" data-placement="top" title="Hapus" type="button"><i
                                                     class="bi bi-trash-fill"></i>&nbsp; Hapus</a>
+                                           <br>
+                                            <a href="/admin/report_harian/cetak/{{ $p->ID_Laporan }}"
+                                                class="delete btn mb-1 btn-warning"
+                                                data-toggle="tooltip" data-placement="top" title="Cetak" type="button"><i
+                                                    class="bi bi-printer-fill"></i>&nbsp; Cetak</a>
                                         </td>
                                     </tr>
                                 @endforeach

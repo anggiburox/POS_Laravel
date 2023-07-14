@@ -67,7 +67,9 @@ Route::middleware(['auth','admin'])->group(function () {
     Route::get('/admin/report_harian/tambah', [ReportHarianControllersAdmin::class, 'tambah']);
     Route::post('/admin/report_harian/store', [ReportHarianControllersAdmin::class, 'store']);
     Route::get('/admin/report_harian/edit/{id}',[ReportHarianControllersAdmin::class, 'edit']);
-    Route::post('/admin/report_harian/update',[ReportHarianControllersAdmin::class, 'update']);    Route::get('/admin/report_harian/hapus/{id}',[ReportHarianControllersAdmin::class, 'hapus']);
+    Route::post('/admin/report_harian/update',[ReportHarianControllersAdmin::class, 'update']);    
+    Route::get('/admin/report_harian/hapus/{id}',[ReportHarianControllersAdmin::class, 'hapus']);
+    Route::get('/admin/report_harian/cetak/{id}',[ReportHarianControllersAdmin::class, 'cetak']);
 
 });
 

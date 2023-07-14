@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\LaporanModel;
+use App\Models\LeaderModel;
+use Dompdf\Dompdf;
+use Illuminate\Support\Facades\View;
 use Illuminate\Http\Request;
 use App\Models\ReportHarianModel;
 use App\Models\OutletModel;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Response;
 
 class ReportHarianControllersAdmin extends Controller
 {
@@ -151,5 +155,49 @@ class ReportHarianControllersAdmin extends Controller
 
 		// Alihkan halaman ke halaman report_harian jika tidak ada data report_harian dengan ID tersebut
 		return response()->json($listPengeluaran);
+	}
+	public function cetak($ID_Laporan)
+	{
+		$pgw = LaporanModel::where('ID_Laporan',$ID_Laporan)->get();
+		$Tanggal_Laporan=$pgw[0]->Tanggal_Laporan;	
+		$ID_Outlet=$pgw[0]->ID_Outlet;	
+		$Outlet=OutletModel::where('ID_Outlet',$ID_Outlet)->get();	
+		$Nama_Outlet=$Outlet[0]->Nama_Outlet;	
+		$ID_Leader=$Outlet[0]->ID_Leader;	
+		$Leader=LeaderModel::select('Nama_Leader')->where('ID_Leader',$ID_Leader)->get();	
+		$Nama_Leader=$Leader[0]->Nama_Leader;
+		// dd($Nama_Leader);
+
+		$laporan = $pgw[0];
+		$Barang = $pgw[0]->Barang;
+		$Pemasukan = $pgw[0]->Pemasukan;
+		$Pengeluaran = $pgw[0]->Pengeluaran;
+
+		$ListBarang=json_decode($Barang);
+		// dd($ListBarang);
+		$ListPemasukan=json_decode($Pemasukan);
+		$ListPengeluaran=json_decode($Pengeluaran);
+		// $data = [
+		// 	'name' => 'John Doe',
+		// 	'age' => 30,
+		// 	// Add more data as needed
+		// ];
+		$pdf = new Dompdf();
+		$pdf->loadHtml(View::make('pdf.document', [
+			'Nama_Leader' => $Nama_Leader, 
+			'Nama_Outlet' => $Nama_Outlet, 
+			'Tanggal_Laporan' => $Tanggal_Laporan, 
+			'ListBarang' => $ListBarang,
+			'ListPemasukan' => $ListPemasukan,
+			'ListPengeluaran' => $ListPengeluaran
+		]));
+	
+		// (Optional) Set additional configuration options
+		$pdf->setPaper('A4', 'portrait');
+	
+		// Render the PDF
+		$pdf->render();
+	
+		$pdf->stream('document.pdf');
 	}
 }

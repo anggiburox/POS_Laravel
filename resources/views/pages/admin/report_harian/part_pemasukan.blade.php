@@ -309,4 +309,18 @@
                                             style="background-color:#e6e6fa;">
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td>
+                                        TOTAL PEMASUKAN 
+                                        <input type="hidden"  name="pemasukan[64]" value="TOTAL PEMASUKAN" style="background-color:#e6e6fa;">
+                                    </td>
+                                    <td>
+                                        <input type="number" min="0" class="form-control" name="pemasukan[62]" value="0"
+                                            style="background-color:#e6e6fa;">
+                                    </td>
+                                    <td>
+                                        <input type="number" min="0" class="form-control" name="pemasukan[63]" value="0"
+                                            style="background-color:#e6e6fa;">
+                                    </td>
+                                </tr>
                             </table>
