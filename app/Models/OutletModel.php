@@ -62,4 +62,12 @@ class OutletModel extends Model
         
         return $brng;
     }
+    public static function countJoinOutletLeaderSession($leaderId)
+    {
+        $brng = DB::table('outlet')
+        ->join('leader_outlet', 'leader_outlet.ID_Leader', '=', 'outlet.ID_Leader')
+        ->where('leader_outlet.ID_Leader', $leaderId)
+        ->count();
+        return $brng;
+    }
 }
