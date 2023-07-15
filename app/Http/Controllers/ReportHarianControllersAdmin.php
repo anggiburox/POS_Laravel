@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Http\Request;
 use App\Models\ReportHarianModel;
 use App\Models\OutletModel;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
@@ -37,6 +38,7 @@ class ReportHarianControllersAdmin extends Controller
 
 	public function store(Request $request)
 	{
+		// dd($request->all());
 
 		// insert data ke table report_harian
 		$arrayBarang = $request->barang;
@@ -50,7 +52,8 @@ class ReportHarianControllersAdmin extends Controller
 		
 		DB::table('laporan')->insert([
 			'ID_Outlet' => $request->id_outlet,
-			'Tanggal_Laporan' => $request->tanggal_laporan,
+			'Tanggal_Laporan' => Carbon::createFromFormat('Y-m-d', $request->tanggal_laporan)->format('Y-m-d'),
+			
 			'Barang' => $jsonArrayBarang,
 			'Pemasukan' => $jsonArrayPemasukan,
 			'Pengeluaran' => $jsonArrayPengeluaran,
@@ -104,7 +107,7 @@ class ReportHarianControllersAdmin extends Controller
 		// update data report_harian
 		DB::table('laporan')->where('ID_Laporan', $request->ID_Laporan)->update([
 			'ID_Outlet' => $request->id_outlet,
-			'Tanggal_Laporan' => $request->tanggal_laporan,
+			'Tanggal_Laporan' => Carbon::createFromFormat('Y-m-d', $request->tanggal_laporan)->format('Y-m-d'),
 			'Barang' => $jsonArrayBarang,
 			'Pemasukan' => $jsonArrayPemasukan,
 			'Pengeluaran' => $jsonArrayPengeluaran,

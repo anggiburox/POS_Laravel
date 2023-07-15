@@ -100,7 +100,7 @@
          </td>
          <td class="input-group">
             <span class="input-group-text" id="basic-addon1">Rp</span>
-             <input type="text" class="form-control" id="totalpengeluaran" style="text-align: end"  name="pengeluaran[18]" value=""
+             <input type="text" class="form-control bg-danger" readonly id="totalpengeluaran" style="text-align: end"  name="pengeluaran[18]" value=""
                  style="background-color:#e6e6fa;">
                 
          </td>

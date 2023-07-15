@@ -42,7 +42,7 @@
                                     <tr>
                                         <td>{{ $no }}</td>
                                         <td>
-                                            {{ $p->Tanggal_Laporan }}
+                                            {{ date('d-m-Y', strtotime($p->Tanggal_Laporan)) }}
                                         </td>
                                         <td>
                                             {{ $p->Nama_Outlet }}

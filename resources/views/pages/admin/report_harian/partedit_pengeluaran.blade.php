@@ -100,7 +100,7 @@
         </td>
         <td class="input-group">
            <span class="input-group-text" id="basic-addon1">Rp</span>
-            <input type="text" class="form-control  bg-danger" id="totalpengeluaranedit" style="text-align: end"  name="pengeluaran[18]" value="{{ $ListPengeluaran->{18} }}"
+            <input type="text" class="form-control  bg-danger" readonly id="totalpengeluaranedit" style="text-align: end"  name="pengeluaran[18]" value="{{ $ListPengeluaran->{18} }}"
                 style="background-color:#e6e6fa;">
                
         </td>

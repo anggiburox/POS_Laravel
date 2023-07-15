@@ -20,7 +20,7 @@
                         <label for="inputText" class="col-sm-4 col-form-label">Tanggal <label
                                 style='color:red;'>(*)</label></label>
                         <div class="col-sm-3">
-                            <input type="date" class="form-control" name="tanggal_laporan" value="<?= date('Y-d-m') ?>" required readonly style="background-color:#e6e6fa;">
+                            <input type="date" class="form-control" name="tanggal_laporan" value="<?= date('Y-m-d') ?>" required readonly style="background-color:#e6e6fa;">
                         </div>
                     </div>
                     <div class="row mb-3">

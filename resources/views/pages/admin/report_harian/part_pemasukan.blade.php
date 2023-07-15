@@ -246,36 +246,35 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        TOTAL PEMASUKAN 
+                                        <b class="text-info">TOTAL PEMASUKAN</b>
                                         <input type="hidden"  name="pemasukan[43]" value="TOTAL PEMASUKAN" style="background-color:#e6e6fa;">
                                     </td>
                                     <td class="input-group">
                                         <span class="input-group-text" id="basic-addon1">Rp</span>
-                                        <input type="text" class="form-control"  id="total" style="text-align: end;" name="pemasukan[44]" 
+                                        <input type="text" class="form-control bg-info" readonly  id="total" style="text-align: end;" name="pemasukan[44]" 
                                             style="background-color:#e6e6fa;">
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        TOTAL PENGELUARAN 
+                                        <b class="text-danger">TOTAL PENGELUARAN</b>
                                         <input type="hidden"  name="pemasukan[45]" value="TOTAL PENGELUARAN" style="background-color:#e6e6fa;">
                                     </td>
                                     <td class="input-group">
                                         <span class="input-group-text" id="basic-addon1">Rp</span>
-                                         <input type="text" class="form-control" id="totalpengeluaran1" style="text-align: end"  name="pemasukan[46]" value=""
+                                         <input type="text" class="form-control bg-danger" readonly id="totalpengeluaran1" style="text-align: end"  name="pemasukan[46]" value=""
                                              style="background-color:#e6e6fa;">
                                             
                                      </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        TOTAL 
+                                        <b>TOTAL</b> 
                                         <input type="hidden"  name="pemasukan[47]" value="TOTAL" style="background-color:#e6e6fa;">
                                     </td>
                                     <td class="input-group">
                                         <span class="input-group-text" id="basic-addon1">Rp</span>
-                                         <input type="text" class="form-control" id="totalsemua" style="text-align: end"  name="pemasukan[48]" value=""
-                                             style="background-color:#e6e6fa;">
+                                         <input type="text" class="form-control" readonly id="totalsemua" style="text-align: end; background-color:#e6e6fa;"  name="pemasukan[48]" value="">
                                             
                                      </td>
                                 </tr>
