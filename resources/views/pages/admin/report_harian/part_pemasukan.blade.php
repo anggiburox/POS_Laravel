@@ -19,7 +19,7 @@
                                     </td>
                                     <td class="input-group">
                                         <span class="input-group-text" id="basic-addon1">Rp</span>
-                                        <input type="text" class="form-control hitung" style="text-align: end;" name="pemasukan[2]" 
+                                        <input type="text" class="form-control hitung" value="0" style="text-align: end;" name="pemasukan[2]" 
                                             style="background-color:#e6e6fa;">
                                     </td>
                                    
@@ -31,7 +31,7 @@
                                     </td>
                                     <td class="input-group">
                                         <span class="input-group-text" id="basic-addon1">Rp</span>
-                                        <input type="text" class="form-control hitung" style="text-align: end;" name="pemasukan[4]" 
+                                        <input type="text" class="form-control hitung" value="0" style="text-align: end;" name="pemasukan[4]" 
                                             style="background-color:#e6e6fa;">
                                     </td>
                                 </tr>
@@ -42,7 +42,7 @@
                                     </td>
                                     <td class="input-group">
                                         <span class="input-group-text" id="basic-addon1">Rp</span>
-                                        <input type="text" class="form-control hitung" style="text-align: end;" name="pemasukan[6]" 
+                                        <input type="text" class="form-control hitung" value="0" style="text-align: end;" name="pemasukan[6]" 
                                             style="background-color:#e6e6fa;">
                                     </td>
                                 </tr>
@@ -53,7 +53,7 @@
                                     </td>
                                     <td class="input-group">
                                         <span class="input-group-text" id="basic-addon1">Rp</span>
-                                        <input type="text" class="form-control hitung" style="text-align: end;" name="pemasukan[8]" 
+                                        <input type="text" class="form-control hitung" value="0" style="text-align: end;" name="pemasukan[8]" 
                                             style="background-color:#e6e6fa;">
                                     </td>
                                 </tr>
@@ -64,7 +64,7 @@
                                     </td>
                                     <td class="input-group">
                                         <span class="input-group-text" id="basic-addon1">Rp</span>
-                                        <input type="text" class="form-control hitung" style="text-align: end;" name="pemasukan[10]" 
+                                        <input type="text" class="form-control hitung" value="0" style="text-align: end;" name="pemasukan[10]" 
                                             style="background-color:#e6e6fa;">
                                     </td>
                                 </tr>
@@ -75,7 +75,7 @@
                                     </td>
                                     <td class="input-group">
                                         <span class="input-group-text" id="basic-addon1">Rp</span>
-                                        <input type="text" class="form-control hitung" style="text-align: end;" name="pemasukan[12]" 
+                                        <input type="text" class="form-control hitung" value="0" style="text-align: end;" name="pemasukan[12]" 
                                             style="background-color:#e6e6fa;">
                                     </td>
                                 </tr>
@@ -86,7 +86,7 @@
                                     </td>
                                     <td class="input-group">
                                         <span class="input-group-text" id="basic-addon1">Rp</span>
-                                        <input type="text" class="form-control hitung" style="text-align: end;" name="pemasukan[14]" 
+                                        <input type="text" class="form-control hitung" value="0" style="text-align: end;" name="pemasukan[14]" 
                                             style="background-color:#e6e6fa;">
                                     </td>
                                 </tr>
@@ -97,7 +97,7 @@
                                     </td>
                                     <td class="input-group">
                                         <span class="input-group-text" id="basic-addon1">Rp</span>
-                                        <input type="text" class="form-control hitung" style="text-align: end;" name="pemasukan[16]" 
+                                        <input type="text" class="form-control hitung" value="0" style="text-align: end;" name="pemasukan[16]" 
                                             style="background-color:#e6e6fa;">
                                     </td>
                                 </tr>
@@ -108,7 +108,7 @@
                                     </td>
                                     <td class="input-group">
                                         <span class="input-group-text" id="basic-addon1">Rp</span>
-                                        <input type="text" class="form-control hitung" style="text-align: end;" name="pemasukan[18]" 
+                                        <input type="text" class="form-control hitung" value="0" style="text-align: end;" name="pemasukan[18]" 
                                             style="background-color:#e6e6fa;">
                                     </td>
                                 </tr>
@@ -119,7 +119,7 @@
                                     </td>
                                     <td class="input-group">
                                         <span class="input-group-text" id="basic-addon1">Rp</span>
-                                        <input type="text" class="form-control hitung" style="text-align: end;" name="pemasukan[20]" 
+                                        <input type="text" class="form-control hitung" value="0" style="text-align: end;" name="pemasukan[20]" 
                                             style="background-color:#e6e6fa;">
                                     </td>
                                 </tr>
@@ -130,7 +130,7 @@
                                     </td>
                                     <td class="input-group">
                                         <span class="input-group-text" id="basic-addon1">Rp</span>
-                                        <input type="text" class="form-control hitung" style="text-align: end;" name="pemasukan[22]" 
+                                        <input type="text" class="form-control hitung" value="0" style="text-align: end;" name="pemasukan[22]" 
                                             style="background-color:#e6e6fa;">
                                     </td>
                                 </tr>
@@ -141,7 +141,7 @@
                                     </td>
                                     <td class="input-group">
                                         <span class="input-group-text" id="basic-addon1">Rp</span>
-                                        <input type="text" class="form-control hitung" style="text-align: end;" name="pemasukan[24]" 
+                                        <input type="text" class="form-control hitung" value="0" style="text-align: end;" name="pemasukan[24]" 
                                             style="background-color:#e6e6fa;">
                                     </td>
                                 </tr>
@@ -152,7 +152,7 @@
                                     </td>
                                     <td class="input-group">
                                         <span class="input-group-text" id="basic-addon1">Rp</span>
-                                        <input type="text" class="form-control hitung" style="text-align: end;" name="pemasukan[26]" 
+                                        <input type="text" class="form-control hitung" value="0" style="text-align: end;" name="pemasukan[26]" 
                                             style="background-color:#e6e6fa;">
                                     </td>
                                 </tr>
@@ -163,7 +163,7 @@
                                     </td>
                                     <td class="input-group">
                                         <span class="input-group-text" id="basic-addon1">Rp</span>
-                                        <input type="text" class="form-control hitung" style="text-align: end;" name="pemasukan[28]" 
+                                        <input type="text" class="form-control hitung" value="0" style="text-align: end;" name="pemasukan[28]" 
                                             style="background-color:#e6e6fa;">
                                     </td>
                                 </tr>
@@ -174,7 +174,7 @@
                                     </td>
                                     <td class="input-group">
                                         <span class="input-group-text" id="basic-addon1">Rp</span>
-                                        <input type="text" class="form-control hitung" style="text-align: end;" name="pemasukan[30]" 
+                                        <input type="text" class="form-control hitung" value="0" style="text-align: end;" name="pemasukan[30]" 
                                             style="background-color:#e6e6fa;">
                                     </td>
                                 </tr>
@@ -185,7 +185,7 @@
                                     </td>
                                     <td class="input-group">
                                         <span class="input-group-text" id="basic-addon1">Rp</span>
-                                        <input type="text" class="form-control hitung" style="text-align: end;" name="pemasukan[32]" 
+                                        <input type="text" class="form-control hitung" value="0" style="text-align: end;" name="pemasukan[32]" 
                                             style="background-color:#e6e6fa;">
                                     </td>
                                 </tr>
@@ -196,7 +196,7 @@
                                     </td>
                                     <td class="input-group">
                                         <span class="input-group-text" id="basic-addon1">Rp</span>
-                                        <input type="text" class="form-control hitung" style="text-align: end;" name="pemasukan[34]" 
+                                        <input type="text" class="form-control hitung" value="0" style="text-align: end;" name="pemasukan[34]" 
                                             style="background-color:#e6e6fa;">
                                     </td>
                                 </tr>
@@ -207,7 +207,7 @@
                                     </td>
                                     <td class="input-group">
                                         <span class="input-group-text" id="basic-addon1">Rp</span>
-                                        <input type="text" class="form-control hitung" style="text-align: end;" name="pemasukan[36]" 
+                                        <input type="text" class="form-control hitung" value="0" style="text-align: end;" name="pemasukan[36]" 
                                             style="background-color:#e6e6fa;">
                                     </td>
                                 </tr>
@@ -218,7 +218,7 @@
                                     </td>
                                     <td class="input-group">
                                         <span class="input-group-text" id="basic-addon1">Rp</span>
-                                        <input type="text" class="form-control hitung" style="text-align: end;" name="pemasukan[38]" 
+                                        <input type="text" class="form-control hitung" value="0" style="text-align: end;" name="pemasukan[38]" 
                                             style="background-color:#e6e6fa;">
                                     </td>
                                 </tr>
@@ -229,7 +229,7 @@
                                     </td>
                                     <td class="input-group">
                                         <span class="input-group-text" id="basic-addon1">Rp</span>
-                                        <input type="text" class="form-control hitung" style="text-align: end;" name="pemasukan[40]" 
+                                        <input type="text" class="form-control hitung" value="0" style="text-align: end;" name="pemasukan[40]" 
                                             style="background-color:#e6e6fa;">
                                     </td>
                                 </tr>
@@ -240,7 +240,7 @@
                                     </td>
                                     <td class="input-group">
                                         <span class="input-group-text" id="basic-addon1">Rp</span>
-                                        <input type="text" class="form-control hitung" style="text-align: end;" name="pemasukan[42]" 
+                                        <input type="text" class="form-control hitung" value="0" style="text-align: end;" name="pemasukan[42]" 
                                             style="background-color:#e6e6fa;">
                                     </td>
                                 </tr>

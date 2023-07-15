@@ -169,7 +169,6 @@ class ReportHarianControllersAdmin extends Controller
 		$ID_Leader=$Outlet[0]->ID_Leader;	
 		$Leader=LeaderModel::select('Nama_Leader')->where('ID_Leader',$ID_Leader)->get();	
 		$Nama_Leader=$Leader[0]->Nama_Leader;
-		// dd($Nama_Leader);
 
 		$laporan = $pgw[0];
 		$Barang = $pgw[0]->Barang;
@@ -177,14 +176,9 @@ class ReportHarianControllersAdmin extends Controller
 		$Pengeluaran = $pgw[0]->Pengeluaran;
 
 		$ListBarang=json_decode($Barang);
-		// dd($ListBarang);
 		$ListPemasukan=json_decode($Pemasukan);
 		$ListPengeluaran=json_decode($Pengeluaran);
-		// $data = [
-		// 	'name' => 'John Doe',
-		// 	'age' => 30,
-		// 	// Add more data as needed
-		// ];
+		
 		$pdf = new Dompdf();
 		$pdf->loadHtml(View::make('pdf.document', [
 			'Nama_Leader' => $Nama_Leader, 

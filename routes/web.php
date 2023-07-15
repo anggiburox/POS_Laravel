@@ -96,7 +96,12 @@ Route::middleware(['auth','leader'])->group(function () {
     //route leader report harian
     Route::get('/leader/report_harian/', [ReportHarianControllerLeader::class, 'index']);
     Route::get('/leader/report_harian/cetak_pdf_satuan/{id}',[ReportHarianControllerLeader::class, 'cetak_pdf_satuan']);
-
+    Route::get('/leader/report_harian/tambah', [ReportHarianControllerLeader::class, 'tambah']);
+    Route::get('/leader/report_harian/edit/{id}',[ReportHarianControllerLeader::class, 'edit']);  
+    Route::post('/leader/report_harian/store', [ReportHarianControllerLeader::class, 'store']);
+    Route::post('/leader/report_harian/update',[ReportHarianControllerLeader::class, 'update']);    
+    Route::get('/leader/report_harian/hapus/{id}',[ReportHarianControllerLeader::class, 'hapus']);
+    Route::get('/leader/report_harian/cetak/{id}',[ReportHarianControllerLeader::class, 'cetak']);
     //route leader outlet
     Route::get('/leader/outlet/', [OutletControllerLeader::class, 'index']);
 

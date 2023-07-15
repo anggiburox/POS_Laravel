@@ -22,28 +22,55 @@
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">ID Outlet</th>
+                                <th scope="col">Tanggal</th>
                                 <th scope="col">Nama Outlet</th>
-                                <th scope="col">Alamat Outlet</th>
-                                <th scope="col">Nama Leader </th>
-                                <th scope="col">Alamat Leader</th>
-                                <th scope="col">Nomor Telepon Leader</th>
+                                <th scope="col">Nama Leader</th>
+                                <th scope="col">Goreng Ayam</th>
+                                <th scope="col">Setoran </th>
+                                <th scope="col">Pengeluaran </th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $no = 0;?>
-                            <!-- @foreach($pgw as $p) -->
+                            @foreach($pgw as $p) 
                             <?php $no++ ;?>
                             <tr>
                                 <td>{{$no}}</td>
                                 <td>
-                                    <a href="finance/report_harian/cetak_pdf_satuan/{{ $no}}"
-                                        class="btn mb-1 btn-secondary btn-sm" data-toggle="tooltip" data-placement="top"
-                                        title="Cetak" type="button"><i class="bi bi-printer-fill"></i>
+                                    {{ date('d-m-Y', strtotime($p->Tanggal_Laporan)) }}
+                                </td>
+                                <td>
+                                    {{ $p->Nama_Outlet }}
+                                </td>
+                                <td>
+                                    {{ $p->Nama_Leader }}
+                                </td>
+                                <td>
+                                    <a class="delete btn mb-1 btn-info"
+                                        onclick="listLaporanAyam({{ $p->ID_Laporan }})" data-toggle="tooltip"
+                                        data-placement="top" title="List Barang" type="button"><i
+                                            class="bi bi-eye-fill"></i>&nbsp; Lihat</a>
+                                </td>
+                                <td>
+                                    <a class="delete btn mb-1 btn-info"
+                                        onclick="listLaporanPemasukan({{ $p->ID_Laporan }})" data-toggle="tooltip"
+                                        data-placement="top" title="List Pemasukan" type="button"><i
+                                            class="bi bi-eye-fill"></i>&nbsp; Lihat</a>
+                                </td>
+                                <td>
+                                    <a class="delete btn mb-1 btn-info"
+                                        onclick="listLaporanPengeluaran({{ $p->ID_Laporan }})" data-toggle="tooltip"
+                                        data-placement="top" title="List Pengeluaran" type="button"><i
+                                            class="bi bi-eye-fill"></i>&nbsp; Lihat</a>
+                                </td>
+                                <td>
+                                    <a href="/finance/report_harian/cetak_pdf_satuan/{{ $p->ID_Laporan}}"
+                                        class="btn mb-1 btn-secondary" data-toggle="tooltip" data-placement="top"
+                                        title="Cetak" type="button"><i class="bi bi-printer-fill">&nbsp; Cetak</i>
                                 </td>
                             </tr>
-                            <!-- @endforeach -->
+                           @endforeach 
                         </tbody>
                     </table>
                     <!-- End Table with stripped rows -->
@@ -53,35 +80,168 @@
 
         </div>
     </div>
+    @include('pages/admin/report_harian/modal_list_barang')
+    @include('pages/admin/report_harian/modal_list_pemasukan')
+    @include('pages/admin/report_harian/modal_list_pengeluaran')
 </section>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
-function showConfirmation(event) {
-    event.preventDefault();
-    var deleteLink = event.target.getAttribute('href');
+    function listLaporanAyam(id) {
+            $.ajax({
+                url: '/ajax/report_ayam/' + id,
+                type: 'get',
+                dataType: 'json',
 
-    swal({
-        title: "Konfirmasi",
-        text: "Apakah Anda yakin ingin menghapus data ini?",
-        icon: "warning",
-        buttons: ["Batal", "Ya"],
-        dangerMode: true,
-    }).then((confirm) => {
-        if (confirm) {
-            window.location.href = deleteLink;
+                success: function(response) {
+                    // Handle the response
+                    createTable(response);
+                },
+                error: function(xhr, status, error) {
+                    // Handle the error, if any
+                    console.log(error);
+                }
+            });
+            $('#ModalBarang').modal('show');
         }
-    });
-}
-</script>
-@if(Session::has('success'))
-<script>
-swal("Sukses", "{{ Session::get('success') }}", "success");
-</script>
-@endif
 
-@if(Session::has('danger'))
-<script>
-swal("Sukses", "{{ Session::get('danger') }}", "success");
+        function listLaporanPemasukan(id) {
+            $.ajax({
+                url: '/ajax/report_pemasukan/' + id,
+                type: 'get',
+                dataType: 'json',
+
+                success: function(response) {
+                    // Handle the response
+                    createTable1(response);
+                },
+                error: function(xhr, status, error) {
+                    // Handle the error, if any
+                    console.log(error);
+                }
+            });
+            $('#ModalPemasukan').modal('show');
+        }
+
+        function listLaporanPengeluaran(id) {
+            $.ajax({
+                url: '/ajax/report_pengeluaran/' + id,
+                type: 'get',
+                dataType: 'json',
+
+                success: function(response) {
+                    // Handle the response
+                    createTable2(response);
+                },
+                error: function(xhr, status, error) {
+                    // Handle the error, if any
+                    console.log(error);
+                }
+            });
+            $('#ModalPengeluaran').modal('show');
+        }
+
+        function createTable(response) {
+            var key = Object.keys(response);
+            let tableHtml =
+                '<table class="table table-sm"><thead><tr><th>NAMA BARANG</th><th>QTY</th><th>PCS</th></tr></thead><tbody>';
+
+
+            for (var i = 0; i < key.length; i += 3) {
+                tableHtml += '<tr>';
+
+                // Create three table cells in each row
+                for (var j = 0; j < 3; j++) {
+                    var keya = key[i + j];
+                    var value = response[keya];
+
+                    tableHtml += '<td>' + value + '</td>';
+                }
+
+                // Append the row to the table
+                tableHtml += '</tr>';
+            }
+            tableHtml += '</tbody></table>';
+
+            // Assuming the table has an ID of "data-table" in your HTML
+
+
+            $('#table-container').html(tableHtml);
+        }
+
+        function createTable1(response) {
+            var key = Object.keys(response);
+
+            // Assuming the table has an ID of "data-table" in your HTML
+            let tableHtml =
+                '<table class="table table-sm"><thead><tr><th>REKAP SETORAN</th><th>JUMLAH</th></tr></thead><tbody>';
+
+            for (var i = 0; i < key.length; i += 2) {
+                // Create five rows
+                tableHtml += '<tr>';
+                for (var j = 0; j < 2; j++) {
+                    var currentIndex = i + j;
+
+                    var keya = key[currentIndex];
+                    var value = response[keya];
+                    if ((j) % 2 === 0) {
+                        // Add two additional rows
+                        tableHtml += '<td>' + value + '</td>';
+                    } else {
+
+                        tableHtml += '<td>Rp. ' + value + '</td>';
+                    }
+
+                    // Add additional columns if needed
+                }
+                tableHtml += '</tr>';
+
+                // Add two additional rows
+                if ((i + 2) % 7 === 0) {
+                    // Add two additional rows
+                    tableHtml += '<tr><td colspan="3">&nbsp;</td></tr>';
+                }
+            }
+            tableHtml += '</tbody></table>';
+
+            $('#table-container1').html(tableHtml);
+        }
+
+        function createTable2(response) {
+            var key = Object.keys(response);
+            // Assuming the table has an ID of "data-table" in your HTML
+            let tableHtml =
+                '<table class="table table-sm"><thead><tr><th>NAMA BARANG</th><th>QTY</th><th>NILAI</th></tr></thead><tbody>';
+
+
+
+            for (var i = 0; i < key.length; i += 3) {
+                // Create five rows
+                tableHtml += '<tr>';
+                for (var j = 0; j < 3; j++) {
+                    var currentIndex = i + j;
+
+
+                    var keya = key[currentIndex];
+                    var value = response[keya];
+
+                    if (j === 2) {
+                        // Update the condition for the third column
+                        tableHtml += '<td>Rp. ' + value + '</td>';
+                    } else {
+                        tableHtml += '<td>' + value + '</td>';
+                    }
+                    // Add additional columns if needed
+                }
+                tableHtml += '</tr>';
+
+
+
+            }
+            tableHtml += '</tbody></table>';
+
+            $('#table-container2').html(tableHtml);
+        }
+
 </script>
-@endif
+
 @endsection

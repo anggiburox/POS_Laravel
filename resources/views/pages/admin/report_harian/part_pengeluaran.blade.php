@@ -25,7 +25,7 @@
          </td>
          <td class="input-group">
             <span class="input-group-text" id="basic-addon1">Rp</span>
-             <input type="text" class="form-control hitungpengeluaran" style="text-align: end"  name="pengeluaran[3]" value=""
+             <input type="text" class="form-control hitungpengeluaran" style="text-align: end"  name="pengeluaran[3]" value="0"
                  style="background-color:#e6e6fa;">
                 
          </td>
@@ -40,7 +40,7 @@
          </td>
          <td class="input-group">
             <span class="input-group-text" id="basic-addon1">Rp</span>
-             <input type="text" class="form-control hitungpengeluaran" style="text-align: end"  name="pengeluaran[6]" value=""
+             <input type="text" class="form-control hitungpengeluaran" style="text-align: end"  name="pengeluaran[6]" value="0"
                  style="background-color:#e6e6fa;">
                 
          </td>
@@ -55,7 +55,7 @@
          </td>
          <td class="input-group">
             <span class="input-group-text" id="basic-addon1">Rp</span>
-             <input type="text" class="form-control hitungpengeluaran" style="text-align: end"  name="pengeluaran[9]" value=""
+             <input type="text" class="form-control hitungpengeluaran" style="text-align: end"  name="pengeluaran[9]" value="0"
                  style="background-color:#e6e6fa;">
                 
          </td>
@@ -70,7 +70,7 @@
          </td>
          <td class="input-group">
             <span class="input-group-text" id="basic-addon1">Rp</span>
-             <input type="text" class="form-control hitungpengeluaran" style="text-align: end"  name="pengeluaran[12]" value=""
+             <input type="text" class="form-control hitungpengeluaran" style="text-align: end"  name="pengeluaran[12]" value="0"
                  style="background-color:#e6e6fa;">
                 
          </td>
@@ -85,7 +85,7 @@
          </td>
          <td class="input-group">
             <span class="input-group-text" id="basic-addon1">Rp</span>
-             <input type="text" class="form-control hitungpengeluaran" style="text-align: end"  name="pengeluaran[15]" value=""
+             <input type="text" class="form-control hitungpengeluaran" style="text-align: end"  name="pengeluaran[15]" value="0"
                  style="background-color:#e6e6fa;">
                 
          </td>
