@@ -80,19 +80,17 @@
                         <th style="background-color: #f2f2f2;" width="60%">
                             PEMASUKAN
                         </th>
-                        <th style="background-color: #f2f2f2;" width="20%">
-                            PCS
-                        </th>
-                        <th style="background-color: #f2f2f2;" width="20%">
+                      
+                        <th style="background-color: #f2f2f2;" width="40%">
                             JUMLAH
                         </th>
                     </tr>
                     @foreach ($ListPemasukan as $key => $value)
-                        @if ($key % 3 === 1)
+                        @if ($key % 2 === 1)
                             <tr>
                         @endif
                         <td>{{ $value }}</td>
-                        @if ($key % 3 === 0)
+                        @if ($key % 2 === 0)
                             </tr>
                         @endif
                     @endforeach
@@ -100,18 +98,18 @@
                 <table border="1" cellpadding="0" cellspacing="0" style="width:100%; font-size:8pt; font-weight:bold;">
                     <tr>
                         <th style="background-color: #f2f2f2;" colspan="3">
-                            REKAP SETORAN
+                            RINCIAN PENGELUARAN BELANJA OUTLET
                         </th>
                     </tr>
                     <tr>
                         <th style="background-color: #f2f2f2;" width="60%">
-                            PEMASUKAN
+                            NAMA BARANG
                         </th>
                         <th style="background-color: #f2f2f2;" width="20%">
-                            PCS
+                            QTY
                         </th>
                         <th style="background-color: #f2f2f2;" width="20%">
-                            JUMLAH
+                            NILAI
                         </th>
                     </tr>
                     @foreach ($ListPengeluaran as $key => $value)

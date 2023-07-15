@@ -5,6 +5,15 @@
          </th>
      </tr>
      <tr>
+         <th colspan="2" style="text-align: right">
+            SALDO PETTYCASH
+         </th>
+         <th style="">
+            Rp. 
+            
+         </th>
+     </tr>
+     <tr>
          <th width="60%">
              NAMA BARANG
          </th>
@@ -23,9 +32,8 @@
              <input type="number" min="0" class="form-control" name="pengeluaran[2]" value="0"
                  style="background-color:#e6e6fa;">
          </td>
-         <td class="input-group">
-            <span class="input-group-text" id="basic-addon1">Rp</span>
-             <input type="text" class="form-control hitungpengeluaran" style="text-align: end"  name="pengeluaran[3]" value=""
+         <td>
+             <input type="number" min="0" class="form-control"  name="pengeluaran[3]" value="0"
                  style="background-color:#e6e6fa;">
                 
          </td>
@@ -38,9 +46,8 @@
              <input type="number" min="0" class="form-control" name="pengeluaran[5]" value="0"
                  style="background-color:#e6e6fa;">
          </td>
-         <td class="input-group">
-            <span class="input-group-text" id="basic-addon1">Rp</span>
-             <input type="text" class="form-control hitungpengeluaran" style="text-align: end"  name="pengeluaran[6]" value=""
+         <td>
+             <input type="number" min="0" class="form-control"  name="pengeluaran[6]" value="0"
                  style="background-color:#e6e6fa;">
                 
          </td>
@@ -53,9 +60,8 @@
              <input type="number" min="0" class="form-control" name="pengeluaran[8]" value="0"
                  style="background-color:#e6e6fa;">
          </td>
-         <td class="input-group">
-            <span class="input-group-text" id="basic-addon1">Rp</span>
-             <input type="text" class="form-control hitungpengeluaran" style="text-align: end"  name="pengeluaran[9]" value=""
+         <td>
+             <input type="number" min="0" class="form-control"  name="pengeluaran[9]" value="0"
                  style="background-color:#e6e6fa;">
                 
          </td>
@@ -68,9 +74,8 @@
              <input type="number" min="0" class="form-control" name="pengeluaran[11]" value="0"
                  style="background-color:#e6e6fa;">
          </td>
-         <td class="input-group">
-            <span class="input-group-text" id="basic-addon1">Rp</span>
-             <input type="text" class="form-control hitungpengeluaran" style="text-align: end"  name="pengeluaran[12]" value=""
+         <td>
+             <input type="number" min="0" class="form-control"  name="pengeluaran[12]" value="0"
                  style="background-color:#e6e6fa;">
                 
          </td>
@@ -83,24 +88,8 @@
              <input type="number" min="0" class="form-control" name="pengeluaran[14]" value="0"
                  style="background-color:#e6e6fa;">
          </td>
-         <td class="input-group">
-            <span class="input-group-text" id="basic-addon1">Rp</span>
-             <input type="text" class="form-control hitungpengeluaran" style="text-align: end"  name="pengeluaran[15]" value=""
-                 style="background-color:#e6e6fa;">
-                
-         </td>
-     </tr>
-     <tr>
          <td>
-             <input type="text" readonly name="pengeluaran[16]" class="form-control" value="TOTAL PENGELUARAN" style="background-color:#e6e6fa;">
-         </td>
-         <td>
-             <input type="number" min="0" class="form-control" name="pengeluaran[17]" value="0"
-                 style="background-color:#e6e6fa;">
-         </td>
-         <td class="input-group">
-            <span class="input-group-text" id="basic-addon1">Rp</span>
-             <input type="text" class="form-control" id="totalpengeluaran" style="text-align: end"  name="pengeluaran[18]" value=""
+             <input type="number" min="0" class="form-control"  name="pengeluaran[15]" value="0"
                  style="background-color:#e6e6fa;">
                 
          </td>

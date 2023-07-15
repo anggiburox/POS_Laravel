@@ -77,10 +77,10 @@
                                                 class="delete btn mb-1 btn-danger" onclick="showConfirmation(event)"
                                                 data-toggle="tooltip" data-placement="top" title="Hapus" type="button"><i
                                                     class="bi bi-trash-fill"></i>&nbsp; Hapus</a>
-                                           <br>
+                                            <br>
                                             <a href="/admin/report_harian/cetak/{{ $p->ID_Laporan }}"
-                                                class="delete btn mb-1 btn-warning"
-                                                data-toggle="tooltip" data-placement="top" title="Cetak" type="button"><i
+                                                class="delete btn mb-1 btn-warning" data-toggle="tooltip"
+                                                data-placement="top" title="Cetak" type="button"><i
                                                     class="bi bi-printer-fill"></i>&nbsp; Cetak</a>
                                         </td>
                                     </tr>
@@ -204,24 +204,30 @@
 
             // Assuming the table has an ID of "data-table" in your HTML
             let tableHtml =
-                '<table class="table table-sm"><thead><tr><th>REKAP SETORAN</th><th>PCS</th><th>JUMLAH</th></tr></thead><tbody>';
+                '<table class="table table-sm"><thead><tr><th>REKAP SETORAN</th><th>JUMLAH</th></tr></thead><tbody>';
 
-            for (var i = 0; i < key.length; i += 3) {
+            for (var i = 0; i < key.length; i += 2) {
                 // Create five rows
                 tableHtml += '<tr>';
-                for (var j = 0; j < 3; j++) {
+                for (var j = 0; j < 2; j++) {
                     var currentIndex = i + j;
-                
+
                     var keya = key[currentIndex];
                     var value = response[keya];
+                    if ((j) % 2 === 0) {
+                        // Add two additional rows
+                        tableHtml += '<td>' + value + '</td>';
+                    } else {
 
-                    tableHtml += '<td>' + value + '</td>';
+                        tableHtml += '<td>Rp. ' + value + '</td>';
+                    }
+
                     // Add additional columns if needed
                 }
                 tableHtml += '</tr>';
 
                 // Add two additional rows
-                if ((i + 3) % 7 === 0) {
+                if ((i + 2) % 7 === 0) {
                     // Add two additional rows
                     tableHtml += '<tr><td colspan="3">&nbsp;</td></tr>';
                 }
@@ -237,24 +243,29 @@
             let tableHtml =
                 '<table class="table table-sm"><thead><tr><th>NAMA BARANG</th><th>QTY</th><th>NILAI</th></tr></thead><tbody>';
 
-            const rowsPerGroup = 7;
+
 
             for (var i = 0; i < key.length; i += 3) {
                 // Create five rows
                 tableHtml += '<tr>';
                 for (var j = 0; j < 3; j++) {
                     var currentIndex = i + j;
-              
+
 
                     var keya = key[currentIndex];
                     var value = response[keya];
 
-                    tableHtml += '<td>' + value + '</td>';
+                    if (j === 2) {
+                        // Update the condition for the third column
+                        tableHtml += '<td>Rp. ' + value + '</td>';
+                    } else {
+                        tableHtml += '<td>' + value + '</td>';
+                    }
                     // Add additional columns if needed
                 }
                 tableHtml += '</tr>';
 
-                // Add two additional rows
+
 
             }
             tableHtml += '</tbody></table>';

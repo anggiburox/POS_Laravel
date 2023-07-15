@@ -66,6 +66,99 @@
 
     </div>
     <script>
+         //PEMASUKAN
+         var inputFields = document.getElementsByClassName('hitungedit');
+        var totalInputedit = document.getElementById('totaledit');
+
+        for (var i = 0; i < inputFields.length; i++) {
+            inputFields[i].addEventListener('input', function() {
+                formatRupiahInputedit(this);
+                calculateTotaledit();
+                calculateTotaleditSemua();
+
+            });
+        }
+
+        
+
+
+        function calculateTotaledit() {
+            var total = 0;
+
+            for (var i = 0; i < inputFields.length; i++) {
+                var value = inputFields[i].value.replace(/[^\d.-]/g, '');
+                if (value !== '') {
+                    total += parseFloat(value.replace(/\./g, ''));
+                }
+            }
+
+            totalInputedit.value = formatRupiahedit(total); // Display the total with 2 decimal places
+        }
+        //PENGELUARAN
+        var inputFieldspengeluaran = document.getElementsByClassName('hitungpengeluaranedit');
+        var totalInputeditPengeluaran = document.getElementById('totalpengeluaranedit');
+        var totalInputeditPengeluaran1 = document.getElementById('totalpengeluaran1edit');
+
+        for (var i = 0; i < inputFieldspengeluaran.length; i++) {
+            inputFieldspengeluaran[i].addEventListener('input', function() {
+                formatRupiahInputedit(this);
+                calculateTotaleditPengeluaran();
+                calculateTotaleditSemua();
+            });
+        }
+
+        
+
+
+        function calculateTotaleditPengeluaran() {
+            var total = 0;
+
+            for (var i = 0; i < inputFieldspengeluaran.length; i++) {
+                var value = inputFieldspengeluaran[i].value.replace(/[^\d.-]/g, '');
+                if (value !== '') {
+                    total += parseFloat(value.replace(/\./g, ''));
+                }
+            }
+
+            totalInputeditPengeluaran.value = formatRupiahedit(total); // Display the total with 2 decimal places
+            totalInputeditPengeluaran1.value = formatRupiahedit(total); // Display the total with 2 decimal places
+        }
+          //TOTAL SEMUA
+          var totalsemua = document.getElementById('totalsemuaedit');
+        function calculateTotaleditSemua() {
+            var total = 0;
+            
+            
+            var total1 = parseFloat(totalInputedit.value.replace(/\./g, ''));
+            var total2 = parseFloat(totalInputeditPengeluaran.value.replace(/\./g, ''));
+            total=total1-total2;
+             
+
+            totalsemua.value = formatRupiahedit(total); // Display the total with 2 decimal places
+        }
+        //FORMAT RUPIAH
+
+        function formatRupiahInputedit(input) {
+            var value = input.value.replace(/\D/g, '');
+            var formattedValue = formatRupiahedit(value);
+            input.value = formattedValue.replace(/^Rp\. /, '');
+        }
+
+        function formatRupiahedit(angka) {
+            var number_string = angka.toString();
+            var split = number_string.split(',');
+            var sisa = split[0].length % 3;
+            var rupiah = split[0].substr(0, sisa);
+            var ribuan = split[0].substr(sisa).match(/\d{3}/g);
+
+            if (ribuan) {
+                var separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
+
+            return split[1] !== undefined ? rupiah + ',' + split[1] : rupiah;
+        }
+
         $('#selectLeader').select2({});
 
 
