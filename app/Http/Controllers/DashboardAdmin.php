@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\FinanceModel;
 use App\Models\LeaderModel;
 use App\Models\OutletModel;
+use App\Models\LaporanModel;
 use Illuminate\Support\Facades\DB;
 
 class DashboardAdmin extends Controller
@@ -19,6 +20,7 @@ class DashboardAdmin extends Controller
         $finance = FinanceModel::count();
         $leader = LeaderModel::count();
         $outlet = OutletModel::count();
-        return view('pages/admin/dashboard', ['finance'=>$finance,'leader'=>$leader,'outlet'=>$outlet]);
+        $report = LaporanModel::count();
+        return view('pages/admin/dashboard', ['finance'=>$finance,'leader'=>$leader,'outlet'=>$outlet,'report'=>$report]);
     }
 }
