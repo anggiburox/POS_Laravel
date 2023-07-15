@@ -83,7 +83,7 @@
                                     <i class="bi bi-clipboard-data"></i>
                                 </div>
                                 <div class="ps-3">
-
+                                    <h6 class='text-black'>{{$report}}</h6>
                                 </div>
 
                             </div>
