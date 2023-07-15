@@ -1,4 +1,4 @@
-@extends('layout.admin')
+@extends('layout.leader')
 
 @section('content')
     <div class="pagetitle">
