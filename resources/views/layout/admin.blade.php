@@ -105,12 +105,12 @@
             </li>
             <!-- End Dashboard Nav -->
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link collapsed" href="/admin/finance">
                     <i class="bi bi-person-fill"></i>
                     <span>Finance</span>
                 </a>
-            </li>
+            </li> -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="/admin/leader">
@@ -127,9 +127,44 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link collapsed" href="/admin/barang">
+                    <i class="bi bi-archive"></i>
+                    <span>Barang</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/admin/pembayaran">
+                    <i class="bi bi-cash-stack"></i>
+                    <span>Jenis Pembayaran</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/admin/rekap_jenis_layanan">
+                    <i class="bi bi-car-front"></i>
+                    <span>Rekap Jenis Layanan</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/admin/rekap_pemasukan">
+                    <i class="bi bi-clipboard-data"></i>
+                    <span>Rekap Pemasukan</span>
+                </a>
+            </li>
+
+            <!-- <li class="nav-item">
                 <a class="nav-link collapsed" href="/admin/report_harian">
                     <i class="bi bi-clipboard-data"></i>
                     <span>Report Harian</span>
+                </a>
+            </li> -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/admin/rekap_pengeluaran">
+                    <i class="bi bi-clipboard-data"></i>
+                    <span>Rekap Pengeluaran</span>
                 </a>
             </li>
         </ul>
@@ -156,6 +191,10 @@
 
     <!-- Template Main JS File -->
     <script src="{{asset('assets/js/main.js') }}"></script>
+
+    <!-- select 2 -->
+    <script src="{{asset('assets/vendor/select2/js/select2.full.min.js') }}"></script>
+    <script src="{{asset('assets/js/plugins-init/select2-init.js') }}"></script>
 
 </body>
 

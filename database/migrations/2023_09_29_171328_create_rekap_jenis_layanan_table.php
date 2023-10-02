@@ -13,8 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('report_harian', function (Blueprint $table) {
-            $table->id();
+        Schema::create('rekap_jenis_layanan', function (Blueprint $table) {
+            $table->string('ID_Jenis_Layanan', 20)->primary();
+            $table->string('Nama_Layanan', 50)->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('report_harian');
+        Schema::dropIfExists('rekap_jenis_layanan');
     }
 };

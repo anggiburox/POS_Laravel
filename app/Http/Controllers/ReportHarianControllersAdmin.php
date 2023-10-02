@@ -130,8 +130,8 @@ class ReportHarianControllersAdmin extends Controller
 	{
 
 		// Menghapus data report_harian dari tabel
-		$list = DB::table('laporan')->select('Barang')->where('ID_Laporan', $id)->get();
-		$listBarang = json_decode($list[0]->Barang);
+		$list = DB::table('detail_rekap_pemasukan')->select('ID_Barang')->where('ID_Laporan', $id)->get();
+		$listBarang = json_decode($list[0]->ID_Barang);
 		
 
 		// Alihkan halaman ke halaman report_harian jika tidak ada data report_harian dengan ID tersebut

@@ -34,9 +34,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
     <!-- =======================================================
-  * Template Name: NiceAdmin
+  * Template Name: Niceleader
   * Updated: Mar 09 2023 with Bootstrap v5.2.3
-  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Template URL: https://bootstrapmade.com/nice-leader-bootstrap-leader-html-template/
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
@@ -46,7 +46,7 @@
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center" style='background:#22bcc6;'>
         <div class="d-flex align-items-center justify-content-between">
-            <a href="/admin/dashboard" class="logo d-flex align-items-center">
+            <a href="/leader/dashboard" class="logo d-flex align-items-center">
                 <span class="d-none d-lg-block" style="color:white;">J House</span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn" style='color:white;'></i>
@@ -115,14 +115,49 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="/leader/outlet">
                     <i class="bi bi-menu-button-wide"></i>
-                    <span>Data Outlet Berdasarkan Session</span>
+                    <span>Data Outlet</span>
                 </a>
             </li>
 
             <li class="nav-item">
+                <a class="nav-link collapsed" href="/leader/barang">
+                    <i class="bi bi-archive"></i>
+                    <span>Barang</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/leader/pembayaran">
+                    <i class="bi bi-cash-stack"></i>
+                    <span>Jenis Pembayaran</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/leader/rekap_jenis_layanan">
+                    <i class="bi bi-car-front"></i>
+                    <span>Rekap Jenis Layanan</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/leader/rekap_pemasukan">
+                    <i class="bi bi-clipboard-data"></i>
+                    <span>Rekap Pemasukan</span>
+                </a>
+            </li>
+
+            <!-- <li class="nav-item">
                 <a class="nav-link collapsed" href="/leader/report_harian">
                     <i class="bi bi-clipboard-data"></i>
                     <span>Report Harian</span>
+                </a>
+            </li> -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/leader/rekap_pengeluaran">
+                    <i class="bi bi-clipboard-data"></i>
+                    <span>Rekap Pengeluaran</span>
                 </a>
             </li>
         </ul>
